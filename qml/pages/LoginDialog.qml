@@ -53,6 +53,7 @@ Page {
                 label: "Client name"; placeholderText: label
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
+                EnterKey.onClicked: pageStack.animatorPush(nextPage)
             }
         }
     }
@@ -77,19 +78,19 @@ Page {
                 Label {
                     anchors { left: parent.left; right: parent.right }
                     horizontalAlignment: Text.AlignHCenter
-                    text: firstname.text
-                }
-
-                Label {
-                    anchors { left: parent.left; right: parent.right }
-                    horizontalAlignment: Text.AlignHCenter
-                    text: lastname.text
+                    text: sfinstance.text
                 }
 
                 Label {
                     anchors { left: parent.left; right: parent.right }
                     horizontalAlignment: Text.AlignHCenter
                     text: email.text
+                }
+
+                Label {
+                    anchors { left: parent.left; right: parent.right }
+                    horizontalAlignment: Text.AlignHCenter
+                    text: clientname.text
                 }
             }
         }
