@@ -15,7 +15,9 @@ TARGET = harbour-seafish
 CONFIG += sailfishapp
 CONFIG += c++14
 
-SOURCES += src/harbour-seafish.cpp
+SOURCES += src/harbour-seafish.cpp \
+    src/LoginDialog.cpp \
+    src/TwoFactorDialog.cpp
 
 DISTFILES += qml/harbour-seafish.qml \
     qml/cover/CoverPage.qml \
@@ -39,3 +41,7 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/harbour-seafish-de.ts
+
+HEADERS += \
+    src/LoginDialog.h \
+    src/TwoFactorDialog.h
