@@ -19,7 +19,7 @@ Page {
                 id: sfinstance
                 anchors { left: parent.left; right: parent.right }
                 focus: true; label: "Seafile Instance"; placeholderText: label
-                EnterKey.enabled: text || inputMethodComposing
+                EnterKey.enabled: url || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: email.focus = true
             }
@@ -53,15 +53,23 @@ Page {
                 label: "Client name"; placeholderText: label
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
-                EnterKey.onClicked: pageStack.animatorPush(nextPage)
+                EnterKey.onClicked: pageStack.animatorPush(login_tryPage)
             }
         }
     }
 
     Component {
-        id: nextPage
+        id: login_tryPage
+
+        Connections {
+            target: login_tryPage
+            onToken_needed:
+                PageStack.push(twoFAPage)
+
+        }
+
         Page {
-            backNavigation: true
+            backNavigation: false
 
             Column {
                 anchors { left: parent.left; right: parent.right }
@@ -92,6 +100,20 @@ Page {
                     horizontalAlignment: Text.AlignHCenter
                     text: clientname.text
                 }
+
+                BusyIndicator {
+                         size: BusyIndicatorSize.small
+                         anchors.centerIn: parent
+                         running: true
+                }
+
+                loginTryPage.onStatusChanged:  {
+                         if (status === PageStatus.Activating) {
+                         console.log("LoginRequest from qml")
+                         LoginDialog.loginCall(sfinstance.url, email.text, password.text, clientname.text)
+                         }
+                }
+
             }
         }
     }
