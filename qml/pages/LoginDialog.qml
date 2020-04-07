@@ -117,4 +117,32 @@ Page {
             }
         }
     }
+
+    Component {
+        id:twoFA_dialog
+
+        Dialog {
+             property string name
+
+             Column {
+                 width: parent.width
+
+                 DialogHeader { title: "Second factor autenthication"}
+
+                 TextField {
+                     id: tokenField
+                     width: parent.width
+                     placeholderText: "2FA token string"
+                     label: "2FA Token input"
+                 }
+             }
+
+             onDone: {
+                 if (result == DialogResult.Accepted) {
+                     TwoFactorDialog.twoFAToken(tokenField.text)
+                     PageStack.pop()
+                 }
+             }
+         }
+    }
 }
