@@ -13,6 +13,7 @@
 TARGET = harbour-seafish
 
 CONFIG += sailfishapp
+CONFIG += c++14
 
 SOURCES += src/harbour-seafish.cpp
 
