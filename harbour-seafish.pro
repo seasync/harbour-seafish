@@ -21,8 +21,8 @@ SOURCES += src/harbour-seafish.cpp \
 
 DISTFILES += qml/harbour-seafish.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
     qml/pages/LoginDialog.qml \
+    qml/pages/SetupPage.qml \
     rpm/harbour-seafish.changes.in \
     rpm/harbour-seafish.changes.run.in \
     rpm/harbour-seafish.spec \
