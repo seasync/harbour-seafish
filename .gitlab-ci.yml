@@ -1,0 +1,21 @@
+image: coderus/sailfishos-platform-sdk:3.3.0.14
+
+cache:
+  key: ${CI_JOB_NAME}
+  paths:
+  - .build/rpmbuilddir-arm/harbour-spoon-cget/
+
+build:
+  stage: build
+  tags: [docker]
+  script:
+    - sdk-assistant list
+    - cp -a . /home/nemo/build
+    - pushd /home/nemo/build
+    - mb2 -t SailfishOS-3.3.0.14-armv7hl build
+    - popd
+    - mv /home/nemo/build/RPMS .
+    - mv /home/nemo/build/.build/ ./.build/ 2>/dev/null
+  artifacts:
+    paths:
+      - RPMS/*
