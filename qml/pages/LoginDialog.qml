@@ -44,6 +44,7 @@ Page {
             }
 
             TextSwitch {
+                id: autlogin
                 text: "Automatic login on startup"
             }
 
@@ -107,10 +108,10 @@ Page {
                          running: true
                 }
 
-                loginTryPage.onStatusChanged:  {
+                login_tryPage.onStatusChanged:  {
                          if (status === PageStatus.Activating) {
                          console.log("LoginRequest from qml")
-                         LoginDialog.loginCall(sfinstance.url, email.text, password.text, clientname.text)
+                         LoginDialog.loginCall(sfinstance.url, email.text, password.text, clientname.text, autlogin.checked)
                          }
                 }
 

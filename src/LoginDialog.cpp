@@ -68,11 +68,12 @@ LoginDialog::LoginDialog(QObject *parent)
 LoginDialog::~LoginDialog() {}
 
 void LoginDialog::loginCall(const QUrl sfinstance, const QString username,
-                               const QString password, const QString clientname)  {
+                               const QString password, const QString clientname, bool auto_login)  {
     url_ = sfinstance;
     username_ = username;
     password_ = password;
     computer_name_ = clientname;
+    auto_login_ = auto_login;
     doLogin();
     qDebug("doLogin() called");
 }
@@ -203,8 +204,7 @@ void LoginDialog::onFetchAccountInfoSuccess(const AccountInfo& info)
     // The user may use the username to login, but we need to store the email
     // to account database
     account.username = info.email;
-    account.isAutomaticLogin =
-        mAutomaticLogin->checkState() == Qt::Checked;
+    account.isAutomaticLogin = auto_login_;
     seafApplet->accountManager()->setCurrentAccount(account);
     seafApplet->accountManager()->updateAccountInfo(account, info);
 }
