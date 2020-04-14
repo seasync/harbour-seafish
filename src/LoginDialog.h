@@ -42,7 +42,7 @@ private:
     QString username_;
     QString password_;
     QString computer_name_;
-    bool auto_login;
+    bool auto_login_;
     bool is_remember_device_;
     LoginRequest *request_;
     FetchAccountInfoRequest *account_info_req_;
