@@ -108,14 +108,14 @@ void LoginDialog::doLogin() {
 }
 
 void LoginDialog::onNetworkError(const QNetworkReply::NetworkError& error, const QString& error_string) {
-    showWarning(tr("Network Error:\n %1").arg(error_string));
+    Warning(tr("Network Error:\n %1").arg(error_string));
 }
 
 void LoginDialog::onSslErrors(QNetworkReply* reply, const QList<QSslError>& errors) {
     const QSslCertificate &cert = reply->sslConfiguration().peerCertificate();
     qDebug() << "\n= SslErrors =\n" << dumpSslErrors(errors);
     qDebug() << "\n= Certificate =\n" << dumpCertificate(cert);
-    showWarning("SSL ERROR");
+    Warning("SSL ERROR");
 }
 
 void LoginDialog::onHttpError(int code) {
@@ -148,7 +148,7 @@ void LoginDialog::onHttpError(int code) {
             err_msg = tr("Failed to login");
         }
 
-        showWarning(err_msg);
+        Warning(err_msg);
     }
 }
 

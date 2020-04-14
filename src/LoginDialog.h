@@ -19,7 +19,7 @@ public:
 
 signals:
     void loginSuccess();
-    void showWarning(const QString& msg);
+    void Warning(const QString& msg);
 
 public slots:
     void loginCall(const QUrl sfinstance, const QString username,
