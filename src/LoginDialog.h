@@ -23,7 +23,7 @@ signals:
 
 public slots:
     void loginCall(const QUrl sfinstance, const QString username,
-                      const QString password, const QString clientname);
+                      const QString password, const QString clientname, const bool auto_login);
 
 private slots:
     void doLogin();
