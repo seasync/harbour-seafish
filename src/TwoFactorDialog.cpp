@@ -1,4 +1,5 @@
 #include "TwoFactorDialog.h"
+#include "seafile/seafile-applet.h"
 
 TwoFactorDialog::TwoFactorDialog(QObject *parent) : QObject(parent) {}
 
@@ -8,4 +9,8 @@ bool TwoFactorDialog::finished() {
 
 QString TwoFactorDialog::getText() {
     return token_;
+}
+
+bool TwoFactorDialog::rememberDeviceChecked() {
+    return mRememberDevice->isChecked();
 }
