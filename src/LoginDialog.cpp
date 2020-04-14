@@ -124,7 +124,7 @@ void LoginDialog::onHttpError(int code) {
     if (reply->hasRawHeader(kSeafileOTPHeader) &&
         QString(reply->rawHeader(kSeafileOTPHeader)) == "required") {
         TwoFactorDialog two_factor_dialog;
-        if (two_factor_dialog.exec() == QDialog::Accepted) {
+        if (two_factor_dialog.finished()) {
             two_factor_auth_token_ = two_factor_dialog.getText();
             is_remember_device_ = two_factor_dialog.rememberDeviceChecked();
         }
