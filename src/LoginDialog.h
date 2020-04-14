@@ -5,6 +5,11 @@
 #include <QNetworkReply>
 #include <QUrl>
 
+class LoginRequest;
+class FetchAccountInfoRequest;
+class ApiError;
+class AccountInfo;
+
 class LoginDialog : public QObject
 {
     Q_OBJECT
@@ -24,9 +29,10 @@ private slots:
     void doLogin();
     void loginSuccess(const QString& token, const QString& s2fa_token);
     void loginFailed(const ApiError& error);
+    void onFetchAccountInfoFailed(const ApiError& error);
+    void onFetchAccountInfoSuccess(const AccountInfo& info);
 
 private:
-    Q_DISABLE_COPY(LoginDialog);
 
     void onNetworkError(const QNetworkReply::NetworkError& error, const QString& error_string);
     void onSslErrors(QNetworkReply *reply, const QList<QSslError>& errors);
