@@ -16,7 +16,7 @@ signals:
     void TokenNeeded();
 
 public slots:
-    void twoEntered(QString token, bool remember_device);
+    void twoFAEntered(QString token, bool remember_device);
 
 private:
     QString token_;

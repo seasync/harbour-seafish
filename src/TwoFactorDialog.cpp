@@ -17,5 +17,5 @@ bool TwoFactorDialog::rememberDeviceChecked() {
 
 void TwoFactorDialog::twoFAEntered(QString token, bool remember_device) {
     token_ = token;
-    remember_device_ = rember_device;
+    remember_device_ = remember_device;
 }
