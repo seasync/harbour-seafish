@@ -13,7 +13,7 @@ public:
     bool rememberDeviceChecked();
 
 signals:
-    void Token_needed();
+    void TokenNeeded();
 
 public slots:
     void twoFAToken(QString token);
