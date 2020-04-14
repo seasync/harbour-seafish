@@ -74,6 +74,7 @@ void LoginDialog::loginCall(const QUrl sfinstance, const QString username,
     password_ = password;
     computer_name_ = clientname;
     doLogin();
+    qDebug("doLogin() called");
 }
 
 void LoginDialog::doLogin() {
