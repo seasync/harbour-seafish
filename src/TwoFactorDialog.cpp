@@ -12,9 +12,10 @@ QString TwoFactorDialog::getText() {
 }
 
 bool TwoFactorDialog::rememberDeviceChecked() {
-    return mRememberDevice->isChecked();
+    return remember_device_;
 }
 
-void TwoFactorDialog::twoFAToken(QString token) {
+void TwoFactorDialog::twoFAEntered(QString token, bool remember_device) {
     token_ = token;
+    remember_device_ = rember_device;
 }

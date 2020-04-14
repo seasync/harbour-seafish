@@ -136,11 +136,16 @@ Page {
                      placeholderText: "2FA token string"
                      label: "2FA Token input"
                  }
+
+                 TextSwitch {
+                     id: rememberDevice
+                     text: "Remember Device"
+                 }
              }
 
              onDone: {
                  if (result == DialogResult.Accepted) {
-                     TwoFactorDialog.twoFAToken(tokenField.text)
+                     TwoFactorDialog.twoFAToken(tokenField.text, rememberDevice.checked)
                      PageStack.pop()
                  }
              }

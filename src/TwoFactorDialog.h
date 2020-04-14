@@ -16,10 +16,11 @@ signals:
     void TokenNeeded();
 
 public slots:
-    void twoFAToken(QString token);
+    void twoEntered(QString token, bool remember_device);
 
 private:
     QString token_;
+    bool remember_device_;
 };
 
 #endif // TWOFACTORDIALOG_H
